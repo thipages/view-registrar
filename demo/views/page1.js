@@ -1,4 +1,4 @@
-import {register} from "../esm/registration.js";
+import {register} from "../../esm/registration.js";
 import {output} from "./components.js";
 import {objectToString} from "./utils.js";
 export const ID="PAGE_1";
