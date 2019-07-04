@@ -11,4 +11,4 @@ export const addReg=(id, updater)=> {
     register.set(id,updater);
     return ()=>({sharedData:reg.sharedData,listener:l(id)});
 };
-export const updater=(id,data)=> render(register.get(id)(data));
+export const updateView=(id, data)=> render(register.get(id)(data));

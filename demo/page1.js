@@ -1,8 +1,7 @@
 import {register} from "../esm/registration.js";
+import {output} from "./components.js";
+import {objectToString} from "./utils.js";
 export const ID="PAGE_1";
-const {html} = lighterhtml;
-const updater=(data)=> {
-    return html`<a href="#" onclick="${onclick}">Page 1</a>`;
-};
+const updateView=(data)=> output(ID,data,objectToString(reg().sharedData),onclick);
 const onclick=()=>reg().listener();
-let reg=register(ID,updater);
+let reg=register(ID,updateView);
