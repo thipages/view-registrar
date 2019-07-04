@@ -16,6 +16,7 @@ export const register=(id, updater)=> {
         listener:l(id)
     });
 };
+// todo : propose it as a separated feature
 export const filterModel = (model,keyAllowed)=> Object.keys(model)
     .filter(key => keyAllowed.includes(key))
     .reduce((obj, key) => {
