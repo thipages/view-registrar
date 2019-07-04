@@ -1,21 +1,21 @@
-let register = new Map();
-let reg, render, modelAccess;
+let registrar = new Map(), reg;
 const l=(id)=>(data)=>reg.listener(id,data);
-export const initReg=(sharedData, listener, _render, _modelAccess)=> {
+const updateView=(id, data)=> reg.render(registrar.get(id)(data));
+export const initReg=(model, listener, render, access)=> {
     if (!reg) {
-        reg={sharedData,listener};
-        render=_render;
-        modelAccess=_modelAccess;
+        reg={model,listener,render,access};
+        return updateView;
     }
 };
-export const addReg=(id, updater)=> {
-    register.set(id,updater);
+export const register=(id, updater)=> {
+    registrar.set(id,updater);
     return ()=>({
-        sharedData:modelAccess?filterModel(reg.sharedData,modelAccess(id)):reg.sharedData,
+        model:reg.access && reg.access(id)
+            ?filterModel(reg.model,reg.access(id))
+            :reg.model,
         listener:l(id)
     });
 };
-export const updateView=(id, data)=> render(register.get(id)(data));
 export const filterModel = (model,keyAllowed)=> Object.keys(model)
     .filter(key => keyAllowed.includes(key))
     .reduce((obj, key) => {

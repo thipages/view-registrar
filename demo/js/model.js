@@ -5,7 +5,7 @@ export const model= {
     data2:2
 };
 
-export const modelAccess=(id)=> {
+export const access=(id)=> {
     switch (id) {
         case ID0:
             return ["data1"];
