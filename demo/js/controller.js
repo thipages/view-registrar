@@ -1,5 +1,5 @@
 import {ID as ID0} from "./views/page0.js";
-import {updateView} from "../esm/registrar.js";
+import {updateView} from "../../esm/registrar.js";
 import {ID as ID1} from "./views/page1.js";
 
 export const listener=(id,data) => {
