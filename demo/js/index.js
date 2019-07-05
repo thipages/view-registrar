@@ -1,4 +1,4 @@
-import {initReg} from "../../esm/registrar.js";
+import {initReg} from "../../esm";
 import {model, access} from "./model.js";
 import {ID as ID0} from "./views/page0.js";
 import {ID as ID1} from "./views/page1.js";

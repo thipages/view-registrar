@@ -1,4 +1,4 @@
-import {register} from "../../../esm/registrar.js";
+import {register} from "../../../esm";
 import {output,objectToString} from "./components.js";
 export const ID="PAGE_1";
 const updateView=(data)=> output(ID,data,objectToString(reg().model),onclick);
