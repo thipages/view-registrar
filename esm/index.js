@@ -1,7 +1,7 @@
 let registrar = new Map(), reg;
 const l=(id)=>(data)=>reg.listener(id,data);
 const updateView=(id, data)=> reg.render(registrar.get(id)(data));
-export const initReg=(model, listener, render, access)=> {
+export const initRegistry=(model, listener, render, access)=> {
     if (!reg) {
         reg={model,listener,render,access};
         return updateView;
